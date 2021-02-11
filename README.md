@@ -4,3 +4,4 @@
 install:
 npm i express mysql
 npm i nodemon -D
+npm i morgan <!-- Morgan modulo para observar la peticiones -->

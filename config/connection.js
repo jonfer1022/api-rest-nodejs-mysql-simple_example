@@ -17,3 +17,6 @@ myConn.connect((error) =>{
     console.log(`Connected DataBase`);
   }
 })
+
+
+module.exports = myConn
