@@ -1,0 +1,20 @@
+{
+  "name": "api-rest-nodejs-mysql",
+  "version": "1.0.0",
+  "description": "Creación de una Api Rest con Node Js y MySql de ejemplo, creando servicios CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
