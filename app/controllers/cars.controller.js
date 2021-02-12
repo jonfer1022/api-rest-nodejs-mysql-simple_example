@@ -7,7 +7,6 @@ const getCars = (req,res) =>{
 }
 
 const getCarById = (req,res) =>{
-  // console.log("id: ",req.params);
   const { id } = req.params
   dataModels.getCarById( id, (data, error) =>{
     res.json(data);
@@ -15,15 +14,24 @@ const getCarById = (req,res) =>{
 }
 
 const insertCar = (req,res) =>{
-  res.json({message: 'Carros!!!'})
+  dataModels.insertCar(req.body, (data, error) =>{
+    res.json(data);
+  })
 }
 
 const editCar = (req,res) =>{
-  res.json({message: 'Carros!!!'})
+  const { id } = req.params;
+  const { marca, descripcion } = req.body;
+  dataModels.editCar({ id, marca, descripcion }, (data, error) =>{
+    res.json(data);
+  })
 }
 
 const deleteCar = (req,res) =>{
-  res.json({message: 'Carros!!!'})
+  const { id } = req.params
+  dataModels.deleteCar(id, (data, error) =>{
+    res.json(data);
+  })
 }
 
 module.exports = {
