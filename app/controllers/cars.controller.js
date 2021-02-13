@@ -1,37 +1,57 @@
-const dataModels = require('../models/cars.model')
+const dataModels = rootRequire('app/models/cars.model')
 
-const getCars = (req,res) =>{
-  dataModels.getCars((data, error) =>{
-    res.json(data);
-  });
+const getCars = async (req,res) =>{
+  try {
+    let data = await dataModels.getCars();
+    res.json(data)
+  } catch (error) {
+    console.error("An error ocurred: ",error);
+    throw ("An error ocurred: ",error);
+  }
 }
 
-const getCarById = (req,res) =>{
-  const { id } = req.params
-  dataModels.getCarById( id, (data, error) =>{
+const getCarById = async (req,res) =>{
+  try {
+    const { id } = req.params;
+    let data = await dataModels.getCarById(id);
     res.json(data);
-  });
+  } catch (error) {
+    console.error("An error ocurred: ",error);
+    throw ("An error ocurred: ",error);
+  }
 }
 
-const insertCar = (req,res) =>{
-  dataModels.insertCar(req.body, (data, error) =>{
+const insertCar = async (req,res) =>{
+  try {
+    let data = await dataModels.insertCar(req.body);
     res.json(data);
-  })
+  } catch (error) {
+    console.error("An error ocurred: ",error);
+    throw ("An error ocurred: ",error);
+  }
 }
 
-const editCar = (req,res) =>{
-  const { id } = req.params;
-  const { marca, descripcion } = req.body;
-  dataModels.editCar({ id, marca, descripcion }, (data, error) =>{
+const editCar = async (req,res) =>{
+  try {
+    const { id } = req.params;
+    const { marca, descripcion } = req.body;
+    let data = await dataModels.editCar(id, marca, descripcion);
     res.json(data);
-  })
+  } catch (error) {
+    console.error("An error ocurred: ",error);
+    throw ("An error ocurred: ",error);
+  }
 }
 
-const deleteCar = (req,res) =>{
-  const { id } = req.params
-  dataModels.deleteCar(id, (data, error) =>{
+const deleteCar = async (req,res) =>{
+  try {
+    const { id } = req.params;
+    let data = await dataModels.deleteCar(id);
     res.json(data);
-  })
+  } catch (error) {
+    console.error("An error ocurred: ",error);
+    throw ("An error ocurred: ",error);
+  }
 }
 
 module.exports = {

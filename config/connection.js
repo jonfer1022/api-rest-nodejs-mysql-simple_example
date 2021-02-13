@@ -10,13 +10,13 @@ const objectConnection ={
 
 const myConn = mysql.createConnection(objectConnection);
 
-myConn.connect((error) =>{
-  if(error){
-    console.log(`There's a error: ${error}`);
-  } else {
-    console.log(`Connected DataBase`);
-  }
-})
+// myConn.connect((error) =>{
+//   if(error){
+//     console.log(`There's a error: ${error}`);
+//   } else {
+//     console.log(`Connected DataBase`);
+//   }
+// })
 
 
 module.exports = myConn

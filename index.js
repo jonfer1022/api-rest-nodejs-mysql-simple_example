@@ -1,10 +1,9 @@
 'use strict'
-
+global.rootRequire = path => require(`${__dirname}/${path}`);
 const app = require('./app/app');
 
 //Database
 require('./config/connection');
-
 
 app.listen(app.get('port'), (error)=>{
   error ?
